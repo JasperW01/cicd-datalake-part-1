@@ -17,7 +17,7 @@
 # cicd-datalake-part-1
 
 terraform {
-  required_version = ">= 0.12.0"
+  required_version = ">= 1.1.3"
 }
 
 locals {
@@ -28,7 +28,7 @@ provider "google" {
   project = "${var.project_id}"
   region = "${var.region}"
   zone = "${var.region}-a" 
-  version = "~> 2.18.0"
+  version = "~> 4.5.0"
 }
 
 resource "random_id" "random_suffix" {
