@@ -66,6 +66,9 @@ resource "google_dataflow_job" "dataflow_job" {
   template_gcs_path     = "gs://dataflow-templates/latest/GCS_Text_to_BigQuery"
   temp_gcs_location     = "gs://${local.gcs_bucket_name}/tmp_dir"
   service_account_email = "${var.service_account_email}"
+  network               = "workload-vpc"
+  subnetwork            = "regions/australia-southeast1/subnetworks/subnet-sydney"
+  ip_configuration      = "WORKER_IP_PRIVATE"
   parameters = {
     javascriptTextTransformFunctionName ="transform"
     JSONPath               = "gs://${var.source_gcs_bucket}/bq_schema.json"
