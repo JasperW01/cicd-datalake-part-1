@@ -73,6 +73,7 @@ resource "google_dataflow_job" "dataflow_job" {
   service_account_email = "${var.service_account_email}"
   network               = "workload-vpc"
   subnetwork            = "regions/australia-southeast1/subnetworks/subnet-sydney"
+  ip_configuration      = "WORKER_IP_PRIVATE"
   parameters = {
     javascriptTextTransformFunctionName ="transform"
     JSONPath               = "gs://${var.source_gcs_bucket}/bq_schema.json"
