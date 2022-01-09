@@ -46,6 +46,7 @@ resource "google_storage_bucket" "tmp_dir_bucket" {
   location  = "${var.region}"
   project = "${var.project_id}"
   force_destroy = "true"
+  uniform_bucket_level_access = "true"
 }
 
 resource "google_bigquery_dataset" "default" {
